@@ -14,6 +14,11 @@ contract MyToken {
         owner = msg.sender;
     }
 
+    function getBalance() public view returns(uint){
+        address sender = msg.sender;
+        return balances[sender];
+    }
+
     function mint(address receiver, uint amount ) public {
         require(msg.sender == owner, "Only owner can mint tokens");
         balances[receiver] += amount;
